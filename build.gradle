@@ -10,7 +10,7 @@ java {
     sourceCompatibility = 11
 }
 
-// кодировка файлов (если используете русский язык в файлах)
+
 compileJava.options.encoding = "UTF-8"
 compileTestJava.options.encoding = "UTF-8"
 
