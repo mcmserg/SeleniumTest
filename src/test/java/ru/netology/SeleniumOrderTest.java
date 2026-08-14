@@ -25,7 +25,7 @@ class SeleniumOrderTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
-//         options.addArguments("--headless");
+        options.addArguments("--headless");
         driver = new ChromeDriver(options);
         driver.get("http://localhost:9999");
     }
@@ -42,10 +42,10 @@ class SeleniumOrderTest {
         driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иванов Сергей");
         driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79201355621");
         driver.findElement(By.cssSelector("[data-test-id='agreement']")).click();
-        driver.findElement(By.cssSelector(".button.button_view_extra.button_theme_alfa-on-white")).click();
+        driver.findElement(By.tagName("button")).click();
 
 
-        WebElement element = driver.findElement(By.className("alert-success"));
+        WebElement element = driver.findElement(By.cssSelector("[data-test-id='order-success']"));
 
         assertTrue(element.isDisplayed());
         assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", element.getText().trim());
