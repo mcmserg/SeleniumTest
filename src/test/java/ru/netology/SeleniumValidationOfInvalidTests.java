@@ -105,4 +105,17 @@ class SeleniumValidationOfInvalidTests {
         assertTrue(element.isDisplayed());
         assertEquals("Поле обязательно для заполнения", element.getText().trim());
     }
+    @Test
+    void shouldUncheckedCheckboxTest() {
+
+        driver.findElement(By.cssSelector("[data-test-id='name'] input")).sendKeys("Иванов Сергей");
+        driver.findElement(By.cssSelector("[data-test-id='phone'] input")).sendKeys("+79201355621");
+        driver.findElement(By.tagName("button")).click();
+
+
+        WebElement element = driver.findElement(By.cssSelector("[data-test-id='agreement'].input_invalid .checkbox__text"));
+
+        assertTrue(element.isDisplayed());
+        assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй", element.getText().trim());
+    }
 }
