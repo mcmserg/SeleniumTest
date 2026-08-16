@@ -18,5 +18,6 @@ jobs:
         run: chmod +x gradlew
       - name: Start SUT
         run: java -jar ./artifacts/app-order.jar &
+          sleep 10
       - name: Build with Gradle
         run: ./gradlew test
